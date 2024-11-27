@@ -1,44 +1,51 @@
 
-async function fetchDataJson(){
-    let response = await fetch('https://thronesapi.com/api/v2/Characters');
+async function fetchDataJson() {
+    let response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=200');
     let responseAsJson = await response.json();
     console.log(responseAsJson);
-    renderData(responseAsJson);
-
+    renderDataWithImages(responseAsJson);
 }
 
-function renderData(responseAsJson){
-    let element = '';
-    for (let i = 0; i < responseAsJson.length; i++){
-        element = responseAsJson[i];
-        document.getElementById("content").innerHTML += 
-        `<div class="main"><div>
+async function fetchAndRenderPokemonDetails(url) {
+    let response = await fetch(url);
+    let pokemonDetails = await response.json();
+    console.log(pokemonDetails);
+
+    return `<div class="main">
         <table>
             <tr>
                 <td>
-                    Family: ${element.family}</b>
+                    Name: ${pokemonDetails.name}
                 </td>
             </tr>
             <tr>
                 <td>
-                   First Name: <b>${element.firstName}</b>
+                   Höhe: ${pokemonDetails.height}
                 </td>
             </tr>
             <tr>
                 <td>
-                   Last Name: ${element.lastName}
+                   Gewicht: ${pokemonDetails.weight}
                 </td>
             </tr>
             <tr>
                 <td>
-                   Description: ${element.title}
+                   <img src="${pokemonDetails.sprites.front_default}" alt="${pokemonDetails.name}">
                 </td>
             </tr>
+            <!-- Füge weitere erwähnenswerte Datenfelder hinzu -->
         </table>
-    </div>
-    <div class="imageSize">
-        <img src="${element.imageUrl}" alt="image">
-        </div></div>`;
+    </div>`;
+}
+
+async function renderDataWithImages(responseAsJson) {
+    let contentElement = document.getElementById("content");
+    contentElement.innerHTML = '';  // Leere zuerst den Inhalt
+
+    for (let i = 0; i < responseAsJson.results.length; i++) {
+        let element = responseAsJson.results[i];
+        let pokemonHtml = await fetchAndRenderPokemonDetails(element.url);
+        contentElement.innerHTML += pokemonHtml;
     }
 }
 

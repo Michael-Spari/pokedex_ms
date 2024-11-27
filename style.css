@@ -5,6 +5,8 @@ body {
     background-color: #f4f4f4;
 }
 #content {
+    display: flex;
+    flex-wrap: wrap;
     margin: 20px;
     padding: 20px;
     background-color: #fff;
@@ -18,17 +20,16 @@ h1 {
 p {
     color: #666;
 }
-.main{
-    display: flex;
-    justify-content: space-between;
+.main {
+    width: 100px; /* Feste Breite festlegen */
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
     background-color: beige;
+    border: 1px solid black;
 }
-.imageSize img{
+/* .imageSize img {
     width: 200px;
-    height: 200px;
     object-fit: cover;
     border-radius: 10px;
-}
+} */
