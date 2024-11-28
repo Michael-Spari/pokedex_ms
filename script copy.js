@@ -80,6 +80,9 @@ async function fetchAndRenderPokemonDetails(url) {
 
 
 
+
+
+
 // async function fetchDataJsonBeans() {
 //     try {
 //         let response = await fetch('https://jellybellywikiapi.onrender.com/api/Beans');

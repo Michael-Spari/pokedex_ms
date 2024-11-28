@@ -1,7 +1,7 @@
 
 async function fetchAndRenderPokemon() {
     // Abrufen der Haupt-API
-    let response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=200');
+    let response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=40');
     let data = await response.json();
     console.log(data);
     renderData(data);
@@ -12,25 +12,19 @@ async function renderData(data) {
     let contentElement = document.getElementById("content");
     contentElement.innerHTML = ''; // Vorherigen Inhalt leeren
 
+    // Klassische for-Schleife mit Index
     for (let i = 0; i < data.results.length; i++) {
         let pokemon = data.results[i]; // Zugriff auf das Pokémon-Objekt über den Index
         let detailResponse = await fetch(pokemon.url); // Detail-API aufrufen
         let pokemonDetails = await detailResponse.json(); // Detail-Daten abrufen
         console.log(pokemonDetails);
 
-        // Pokémon-Typ und entsprechendes Icon abrufen
-        let typeName = pokemonDetails.types[0].type.name;
-        let typeIconPath = getTypeIcon(typeName);
-
         // Pokémon-Daten in HTML hinzufügen
         contentElement.innerHTML += `
             <div class="main">
                 <div>${pokemonDetails.name}</div>
-                <div><img class="mainImage" src="${pokemonDetails.sprites.other["official-artwork"].front_default}" alt="${pokemonDetails.name}"></div>
-                <div>
-                    <img class="typeIcon" src="${typeIconPath}" alt="${typeName} Icon">
-                    <span>${typeName}</span>
-                </div>
+                    <div><img class="mainImage" src="${pokemonDetails.sprites.other["official-artwork"].front_default}" alt="${pokemonDetails.name}"></div>   
+                        <div>${pokemonDetails.types[0].type.name}</div>
             </div>`;
     }
 }
@@ -42,22 +36,10 @@ function getTypeIcon(typeName) {
         water: 'assets/icons/pokedex_icons/water.png',
         bug: 'assets/icons/pokedex_icons/bug.png',
         normal: 'assets/icons/pokedex_icons/normal.png',
-        poison: 'assets/icons/pokedex_icons/poison.png',
-        electric: 'assets/icons/pokedex_icons/electric.png',
-        ground: 'assets/icons/pokedex_icons/ground.png',
-        fairy: 'assets/icons/pokedex_icons/fairy.png',
-        fighting: 'assets/icons/pokedex_icons/fighting.png',
-        psychic: 'assets/icons/pokedex_icons/psychic.png',
-        rock: 'assets/icons/pokedex_icons/rock.png',
-        steel: 'assets/icons/pokedex_icons/steel.png',
-        ice: 'assets/icons/pokedex_icons/ice.png',
-        ghost: 'assets/icons/pokedex_icons/ghost.png',
-        dragon: 'assets/icons/pokedex_icons/dragon.png',
-        flying: 'assets/icons/pokedex_icons/flying.png',
-        dark: 'assets/icons/pokedex_icons/dark.png',
+        // Füge hier weitere Typen und ihre entsprechenden Icons hinzu
     };
 
-    return typeIcons[typeName];
+    return typeIcons[typeName] || 'assets/icons/pokedex_icons/default.png';
 }
 
 
