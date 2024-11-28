@@ -1,47 +1,54 @@
 
-async function fetchAndRenderPokemon() {
-    // Abrufen der Haupt-API
+async function fetchDataJson() {
     let response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=200');
-    let data = await response.json();
-    console.log(data);
-    renderData(data);
+    let responseAsJson = await response.json();
+    console.log(responseAsJson);
+    renderDataWithImages(responseAsJson);
 }
 
-    // Element für das Rendern auswählen
-async function renderData(data) {
+async function renderDataWithImages(responseAsJson) {
     let contentElement = document.getElementById("content");
-    contentElement.innerHTML = ''; // Vorherigen Inhalt leeren
+    contentElement.innerHTML = '';  // Leere zuerst den Inhalt
 
-    // Klassische for-Schleife mit Index
-    for (let i = 0; i < data.results.length; i++) {
-        let pokemon = data.results[i]; // Zugriff auf das Pokémon-Objekt über den Index
-        let detailResponse = await fetch(pokemon.url); // Detail-API aufrufen
-        let pokemonDetails = await detailResponse.json(); // Detail-Daten abrufen
-        // console.log(pokemonDetails);
-
-        // Pokémon-Daten in HTML hinzufügen
-        contentElement.innerHTML += `
-            <div class="main">
-                <table>
-                    <tr>
-                        <td>Name: ${pokemonDetails.name}</td>
-                    </tr>
-                    <tr>
-                        <td>Höhe: ${pokemonDetails.height}</td>
-                    </tr>
-                    <tr>
-                        <td>Gewicht: ${pokemonDetails.weight}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="${pokemonDetails.sprites.front_default}" alt="${pokemonDetails.name}">
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        `;
+    for (let i = 0; i < responseAsJson.results.length; i++) {
+        let element = responseAsJson.results[i];
+        let pokemonHtml = await fetchAndRenderPokemonDetails(element.url);
+        contentElement.innerHTML += pokemonHtml;
     }
 }
+
+async function fetchAndRenderPokemonDetails(url) {
+    let response = await fetch(url);
+    let pokemonDetails = await response.json();
+    console.log(pokemonDetails);
+
+    return `<div class="main">
+        <table>
+            <tr>
+                <td>
+                    Name: ${pokemonDetails.name}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   Höhe: ${pokemonDetails.height}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   Gewicht: ${pokemonDetails.weight}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <img src="${pokemonDetails.sprites.front_default}" alt="${pokemonDetails.name}">
+                </td>
+            </tr>
+            <!-- Füge weitere erwähnenswerte Datenfelder hinzu -->
+        </table>
+    </div>`;
+}
+
 
 
 
