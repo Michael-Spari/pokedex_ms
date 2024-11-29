@@ -2,7 +2,6 @@ function init() {
     fetchPokemonMainApi();
 }
 
-// Abrufen der Haupt-API
 async function fetchPokemonMainApi() { // Haupt-API aufrufen
     let response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=200'); // API-URL
     let data = await response.json(); // Daten abrufen
@@ -10,12 +9,11 @@ async function fetchPokemonMainApi() { // Haupt-API aufrufen
     fetchPokemonDetailUrl(data); // Detail-API aufrufen
 }
 
-// Element für das Rendern auswählen
-async function fetchPokemonDetailUrl(data) {
-    let contentMainCard = document.getElementById("content");
+async function fetchPokemonDetailUrl(data) { // Detail-API aufrufen
+    let contentMainCard = document.getElementById("content"); // Element für das Rendern auswählen
     contentMainCard.innerHTML = ''; // Vorherigen Inhalt leeren
 
-    for (let i = 0; i < data.results.length; i++) {
+    for (let i = 0; i < data.results.length; i++) { // Schleife für die Anzahl der Pokémon
         let pokemon = data.results[i]; // Zugriff auf das Pokémon-Objekt über den Index
         let detailResponse = await fetch(pokemon.url); // Detail-API aufrufen
         let pokemonDetails = await detailResponse.json(); // Detail-Daten abrufen
