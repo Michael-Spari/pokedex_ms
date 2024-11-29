@@ -1,73 +1,33 @@
-
-async function fetchAndRenderPokemon() {
-    // Abrufen der Haupt-API
-    let response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=200');
-    let data = await response.json();
-    console.log(data);
-    renderData(data);
+function init() {
+    fetchPokemonMainApi();
 }
 
-    // Element für das Rendern auswählen
-async function renderData(data) {
-    let contentElement = document.getElementById("content");
-    contentElement.innerHTML = ''; // Vorherigen Inhalt leeren
+// Abrufen der Haupt-API
+async function fetchPokemonMainApi() { // Haupt-API aufrufen
+    let response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=200'); // API-URL
+    let data = await response.json(); // Daten abrufen
+    console.log(data); // Daten in der Konsole anzeigen
+    fetchPokemonDetailUrl(data); // Detail-API aufrufen
+}
+
+// Element für das Rendern auswählen
+async function fetchPokemonDetailUrl(data) {
+    let contentMainCard = document.getElementById("content");
+    contentMainCard.innerHTML = ''; // Vorherigen Inhalt leeren
 
     for (let i = 0; i < data.results.length; i++) {
         let pokemon = data.results[i]; // Zugriff auf das Pokémon-Objekt über den Index
         let detailResponse = await fetch(pokemon.url); // Detail-API aufrufen
         let pokemonDetails = await detailResponse.json(); // Detail-Daten abrufen
-        console.log(pokemonDetails);
+        console.log(pokemonDetails); // Detail-Daten in der Konsole anzeigen
 
-        // Pokémon-Typ und entsprechendes Icon abrufen
-        let typeName = pokemonDetails.types[0].type.name;
-        let typeIconPath = getTypeIcon(typeName);
-
-        // Pokémon-Daten in HTML hinzufügen
-        contentElement.innerHTML += `
-            <div class="main">
-                <div>${pokemonDetails.name}</div>
-                <div><img class="mainImage" src="${pokemonDetails.sprites.other["official-artwork"].front_default}" alt="${pokemonDetails.name}"></div>
-                <div>
-                    <img class="typeIcon" src="${typeIconPath}" alt="${typeName} Icon">
-                    <span>${typeName}</span>
-                </div>
-            </div>`;
+        // Pokémon-Typ und entsprechendes Icon und Farben abrufen
+        let typeName = pokemonDetails.types[0].type.name; // Zugriff auf den Typ des Pokémon
+        let typeIcon = getTypeIcon(typeName); // Icon des Typs
+        let typeColor = getTypeColor(typeName); // Hintergrundfarbe des Typs
+        contentMainCard.innerHTML += renderDataHtml(pokemonDetails, typeName, typeIcon, typeColor); // Pokémon-Daten in HTML hinzufügen
     }
 }
-
-function getTypeIcon(typeName) {
-    const typeIcons = {
-        grass: 'assets/icons/pokedex_icons/grass.png',
-        fire: 'assets/icons/pokedex_icons/fire.png',
-        water: 'assets/icons/pokedex_icons/water.png',
-        bug: 'assets/icons/pokedex_icons/bug.png',
-        normal: 'assets/icons/pokedex_icons/normal.png',
-        poison: 'assets/icons/pokedex_icons/poison.png',
-        electric: 'assets/icons/pokedex_icons/electric.png',
-        ground: 'assets/icons/pokedex_icons/ground.png',
-        fairy: 'assets/icons/pokedex_icons/fairy.png',
-        fighting: 'assets/icons/pokedex_icons/fighting.png',
-        psychic: 'assets/icons/pokedex_icons/psychic.png',
-        rock: 'assets/icons/pokedex_icons/rock.png',
-        steel: 'assets/icons/pokedex_icons/steel.png',
-        ice: 'assets/icons/pokedex_icons/ice.png',
-        ghost: 'assets/icons/pokedex_icons/ghost.png',
-        dragon: 'assets/icons/pokedex_icons/dragon.png',
-        flying: 'assets/icons/pokedex_icons/flying.png',
-        dark: 'assets/icons/pokedex_icons/dark.png',
-    };
-
-    return typeIcons[typeName];
-}
-
-
-
-
-
-
-
-
-
 
 
 

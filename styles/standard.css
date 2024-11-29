@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #212020;
+    margin: 0;
+    padding: 0;
+}
+.contentMax{
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}

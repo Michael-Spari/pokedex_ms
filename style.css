@@ -1,15 +1,10 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 #content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #373636;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -17,23 +12,17 @@ h1 {
     text-align: center;
     color: #333;
 }
-p {
-    color: #666;
-}
-.main {
+.mainCards {
     display: flex;
     flex-direction: column;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
-    background-color: beige;
-    border: 1px solid black;
 }
-.mainImage{
+.mainCardImage{
     width: 100px;
 }
-/* .imageSize img {
-    width: 200px;
+.typeIcon {
+    width: 15px;
     object-fit: cover;
-    border-radius: 10px;
-} */
+}

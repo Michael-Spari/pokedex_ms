@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <script src="script.js"></script>
+    <script src="./scripts/getTypeIcon.js"></script>
+    <script src="./scripts/getTypeColor.js"></script>
+    <script src="./scripts/template.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/standard.css">
 </head>
 <!-- <body onload="usePromise()"> -->
-<body onload="fetchAndRenderPokemon()">
+<body onload="init()">
     <h1>Pokedex</h1>
-    <div id="content"></div>
+    <div class="contentMax" id="content"></div>
     
 </body>
 </html>
