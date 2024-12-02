@@ -18,6 +18,48 @@ h1 {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.mainCards:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.mainCards::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.01%);
+    background-size: 50px 50px;
+    transition: transform 0.5s;
+}
+
+.mainCards:hover::before {
+    transform: translate(33%, 33%);
+}
+.detailCards {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 320px;
+    height: 450px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.detailCardImage {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .mainCardImage{
     width: 100px;
