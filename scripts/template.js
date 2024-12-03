@@ -17,6 +17,8 @@ function renderDataHtml(pokemonDetails, typeName, typeIcon, typeColor) {
 }
 
 function renderDetailDataHTML(pokemonDetails, typeName, typeIcon, typeColor) {
+    document.getElementById("detailCard").classList.toggle("detailWinOpen");
+    document.getElementById("darken").classList.toggle("darkenBackgroundOpen");
     let contentDetailCard = document.getElementById("detailCard");
     contentDetailCard.innerHTML = `
         <div class="innerDetailCards" style="background-color: ${typeColor}">

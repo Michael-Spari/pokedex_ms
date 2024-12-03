@@ -42,8 +42,9 @@ h1 {
 .mainCards:hover::before {
     transform: translate(33%, 33%);
 }
+
 .detailCards {
-    display: flex;
+    display: none;
     flex-direction: column;
     padding: 10px;
     margin: 10px;
@@ -68,3 +69,4 @@ h1 {
     width: 15px;
     object-fit: cover;
 }
+

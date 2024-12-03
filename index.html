@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <script src="script.js"></script>
-    <script src="./scripts/getTypeIcon.js"></script>
-    <script src="./scripts/getTypeColor.js"></script>
+    <script src="./scripts/search_pokemon.js"></script>
+    <script src="./scripts/get_type_icon.js"></script>
+    <script src="./scripts/get_type_color.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./scripts/detail_win.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -15,9 +16,18 @@
 </head>
 
 <body onload="init()">
-    <h1>Pokedex</h1>
-    <div class="contentMax" id="content"></div>
-    <div onclick="toggleRespMenu()" class="detailCards detail_win" id="detailCard"></div>
-    
+    <div onclick="toggleRespMenu()" class="darkenBackgroundClose" id="darken"> </div>
+    <header>
+        <h1>Pokedex</h1>
+            <input type="text" id="seachPokemon" placeholder="Pokémon suchen" oninput="searchPokemon()" />
+    </header>
+    <section>
+        <div class="contentMax" id="content"></div>
+            <div onclick="toggleRespMenu()" class="detailCards detail_win" id="detailCard"></div>
+        <button onclick="showMore()" class="showMore" id="showMore">Mehr Pokémon</button>
+    </section>
+    <footer>
+        <p>© 2024 by Michael Spari</p>
+    </footer>
 </body>
 </html>
