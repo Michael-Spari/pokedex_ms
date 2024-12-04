@@ -20,5 +20,5 @@ function getTypeIcon(typeName) {
         dark: 'assets/icons/pokedex_icons/dark.png',
     };
     
-    return typeIcons[typeName]; // Rückgabe des Icons
+    return typeIcons[typeName] || ''; // Rückgabe des Icons oder eines leeren Strings, wenn kein Icon vorhanden ist
 }

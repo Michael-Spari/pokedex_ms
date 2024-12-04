@@ -1,0 +1,12 @@
+.speciesData{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: wheat;
+    border-radius: 10px;
+    box-shadow: rgb(23, 23, 23) 0 0 5px;
+    font-size: 10px;
+}

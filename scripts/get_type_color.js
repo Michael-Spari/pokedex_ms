@@ -20,5 +20,5 @@ function getTypeColor(typeName) {
         dark: '#705848',
     };
     
-    return typeColors[typeName];
+    return typeColors[typeName] || ''; // Rückgabe der Farbe oder eines leeren Strings, wenn keine Farbe vorhanden ist
 }

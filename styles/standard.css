@@ -24,3 +24,8 @@ section {
     padding-left: 20px;
     padding-right: 20px;
 }
+.centerIcons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}

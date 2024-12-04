@@ -21,12 +21,12 @@ h1 {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    font-size: 12px;
 }
 .mainCards:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 0 10px white;
 }
-
 .mainCards::before {
     content: '';
     position: absolute;
@@ -38,11 +38,18 @@ h1 {
     background-size: 50px 50px;
     transition: transform 0.5s;
 }
-
 .mainCards:hover::before {
     transform: translate(33%, 33%);
 }
-
+.mainCardsIconText {
+    display: flex;
+    justify-content: center;
+    padding: 1px;
+    background-color: wheat;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: rgb(23, 23, 23) 0 0 5px;
+}
 .detailCards {
     display: none;
     flex-direction: column;
@@ -50,7 +57,6 @@ h1 {
     margin: 10px;
     border-radius: 10px;
     width: 320px;
-    height: 450px;
     background-color: white;
     position: fixed;
     top: 50%;
@@ -60,6 +66,13 @@ h1 {
 .detailCardImage {
     width: 100%;
     object-fit: cover;
+    border-radius: 10px;
+}
+.innerDetailCards {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
 }
 .mainCardImage{

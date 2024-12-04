@@ -12,22 +12,32 @@ async function fetchPokemonMainApi() { // Haupt-API aufrufen
     await fetchPokemonDetailUrl(data); // Detail-API aufrufen
 }
 
-async function fetchPokemonDetailUrl(data) {
-    let contentMainCard = document.getElementById("content"); // Haupt-Element für die Pokémon
+async function fetchPokemonDetailUrl(data) { // Detail-API aufrufen
+    let contentMainCard = document.getElementById("content"); // Hauptinhalt holen
 
-    for (let i = 0; i <data.results.length; i++) { // Klassische for-Schleife für die Anzahl der Pokémon
-        let pokemon = data.results[i]; // Pokémon-Daten aus der Liste holen und speichern
-        let detailResponse = await fetch(pokemon.url); // API für Details aufrufen anhand der URL
-        let pokemonDetails = await detailResponse.json(); // JSON-Daten abrufen und speichern
-        pokemonList.push(pokemonDetails); // Pokémon-Daten in globale Liste speichern
+    for (let i = 0; i < data.results.length; i++) { // Schleife über die Ergebnisse data.results
+        const pokemon = data.results[i]; // Einzelnes Pokémon holen
+        const detailResponse = await fetch(pokemon.url); // Detail-API aufrufen
+        const pokemonDetails = await detailResponse.json(); // Daten abrufen
         console.log(pokemonDetails); // Daten in der Konsole anzeigen
 
-        let typeName = pokemonDetails.types[0]?.type?.name; // Pokémon-Typ bestimmen
-        let typeIcon = getTypeIcon(typeName); // Typ-Icon abrufen
-        let typeColor = getTypeColor(typeName); // Typ-Farbe abrufen
+        // Spezies-Informationen abrufen
+        const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonDetails.id}/`); // Spezies-API aufrufen
+        const speciesDetails = await speciesResponse.json(); // Daten abrufen
+        const habitat = speciesDetails.habitat?.name || "Unknown"; // Lebensraum Daten holen
+        const flavorText = speciesDetails.flavor_text_entries.find(entry => entry.language.name === 'en')?.flavor_text || "No description available."; // Daten Beschreibung holen
+        const generation = speciesDetails.generation.name; // Daten Generation holen
+        console.log(speciesDetails); // Daten in der Konsole anzeigen
 
-        // HTML-Inhalt für das Pokémon generieren und einfügen
-        contentMainCard.innerHTML += renderDataHtml(pokemonDetails, typeName, typeIcon, typeColor); // HTML-Inhalt einfügen
+        // Spezies-Details in die Pokémon-Daten integrieren
+        pokemonDetails.speciesData = { habitat, flavorText, generation }; // Spezies-Daten in die Pokémon-Daten integrieren
+        pokemonList.push(pokemonDetails); // Pokémon-Daten in die Liste pokemonList einfügen
+
+        const typeName = pokemonDetails.types[0]?.type?.name; // Typ des Pokémons anhand des ersten Typs und des Namens bestimmen
+        const typeIcon = getTypeIcon(typeName); // Icon des Typs anhand des Namens bestimmen
+        const typeColor = getTypeColor(typeName); // Farbe des Typs anhand des Namens bestimmen
+
+        contentMainCard.innerHTML += renderDataHtml(pokemonDetails, typeName, typeIcon, typeColor); // Daten in die HTML-Datei einfügen
     }
 }
 
@@ -42,7 +52,7 @@ function handleCardClick(pokemonId) { // Detailansicht anzeigen anhand der ID
 }
 
 function showMore() {
-    offset += 20;
-    fetchPokemonMainApi();
+    offset += 20; // Offset um 20 erhöhen
+    fetchPokemonMainApi(); // API erneut aufrufen
 }
 
