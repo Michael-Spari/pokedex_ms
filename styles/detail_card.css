@@ -4,8 +4,39 @@
     justify-content: center;
     align-items: flex-start;
     margin: 0 auto;
-    padding: 10px;
-    background-color: wheat;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgb(23, 23, 23) 0 0 5px;
+    font-size: 10px;
+    margin-top: 5px;
+}
+.leftArrow{
+    width: 120px;
+}
+.detailButtonFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: rgb(23, 23, 23) 0 0 5px;
+    font-size: 10px;
+}
+.loadingGif{
+    width: 30px;
+}
+.iconsFrame{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 5px;
     border-radius: 10px;
     box-shadow: rgb(23, 23, 23) 0 0 5px;
     font-size: 10px;

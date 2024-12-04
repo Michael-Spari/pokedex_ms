@@ -51,8 +51,27 @@ function handleCardClick(pokemonId) { // Detailansicht anzeigen anhand der ID
     }
 }
 
+function showLastPokemon(pokemonId) {
+    const index = pokemonList.findIndex(pokemon => pokemon.id === pokemonId); // Index des Pokémons finden
+    if (index > 0) { // Wenn das Pokémon nicht das erste in der Liste ist
+        handleCardClick(pokemonList[index - 1].id); // Index des vorherigen Pokémons anzeigen -1
+    }
+    else {
+        alert("This is the first Pokémon in the list."); // Wenn das erste Pokémon in der Liste ist
+    }
+}
+
+function showNextPokemon(pokemonId) {
+    const index = pokemonList.findIndex(pokemon => pokemon.id === pokemonId); // Index des Pokémons finden
+    if (index < pokemonList.length - 1) { // Wenn das Pokémon nicht das letzte in der Liste ist
+        handleCardClick(pokemonList[index + 1].id); // Index des nächsten Pokémons anzeigen +1
+    }
+    else {
+        alert("This is the last Pokémon in the list."); // Wenn das letzte Pokémon in der Liste ist
+    }
+}
+
 function showMore() {
     offset += 20; // Offset um 20 erhöhen
     fetchPokemonMainApi(); // API erneut aufrufen
 }
-

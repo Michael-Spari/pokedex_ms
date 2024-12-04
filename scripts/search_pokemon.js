@@ -23,6 +23,6 @@ function searchPokemon() {
     }
 
     if (filteredPokemonList.length === 0) { // Wenn kein Pokémon gefunden wurde
-        contentMainCard.innerHTML = `<p>No Pokémon found.</p>`; //Text kein Pokémon gefunden
+        contentMainCard.innerHTML = `<p>No Pokémon found.</p>`; //Text es wurde kein Pokémon gefunden
     }  
 }
