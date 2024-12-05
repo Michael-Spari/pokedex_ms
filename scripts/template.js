@@ -65,3 +65,22 @@ function renderDetailDataHTML(pokemonDetails, typeName, typeIcon, typeColor) { /
             </div>
         </div>`;
 }
+
+function renderLoadingSpinner() {
+    const contentMainCard = document.getElementById("content");
+    const spinnerElement = document.createElement("div");
+    spinnerElement.id = "loadingSpinner";
+    spinnerElement.innerHTML = `
+        <div class="loadingSpinner">
+            <div id="loading" class="pokeBallContainer">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="40" fill="red" />
+                    <path d="M 10 50 a 40 40 0 0 0 80 0" fill="white" />
+                    <circle cx="50" cy="50" r="8" fill="white" />
+                    <circle cx="50" cy="50" r="12" fill="black" />
+                    <circle cx="50" cy="50" r="6" fill="white" />
+                </svg>
+            </div>
+        </div>`;
+    contentMainCard.insertAdjacentElement("beforebegin", spinnerElement);
+}

@@ -7,7 +7,7 @@ body {
     background-color: #011737;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+    min-height: 100vh;
 }
 header {
     display: flex;
@@ -59,29 +59,29 @@ section {
     justify-content: flex-start;
 }
 button {
-    background-color: #FFCC00; /* Typisches Pokémon-Gelb */
-    border: 2px solid #3B4CCA; /* Dunkles Blau für die Umrandung */
-    color: #2A2A2A; /* Dunkle Schriftfarbe */
-    border-radius: 10px; /* Abgerundete Ecken */
-    padding: 5px 10px; /* Padding für eine angenehme Größe */
+    background-color: #FFCC00;
+    border: 2px solid #3B4CCA;
+    color: #2A2A2A;
+    border-radius: 10px;
+    padding: 5px 10px;
     margin: 5px;
-    font-size: 10px; /* Schriftgröße */
-    font-weight: bold; /* Fettgedruckte Schrift */
-    cursor: pointer; /* Zeigt an, dass der Button klickbar ist */
-    text-transform: uppercase; /* Text in Großbuchstaben */
-    transition: all 0.3s ease; /* Weiche Übergänge bei Hover-Effekten */
-    box-shadow: 0 4px #B5B5B5; /* Schatten für 3D-Effekt */
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px #B5B5B5;
 }
 button:hover {
-    background-color: #3B4CCA; /* Wechselt zu Blau beim Hover */
-    color: #FFF; /* Weißer Text beim Hover */
-    box-shadow: 0 4px #1E1E1E; /* Etwas dunklerer Schatten beim Hover */
-    transform: scale(1.1); /* Leichte Vergrößerung */
+    background-color: #3B4CCA;
+    color: #FFF;
+    box-shadow: 0 4px #1E1E1E;
+    transform: scale(1.1);
 }
 button:active {
-    background-color: #FF1E1E; /* Rotes Feedback beim Klick */
-    box-shadow: 0 2px #6B6B6B; /* Schatten wird verkleinert */
-    transform: translateY(2px); /* Drückt den Button nach unten */
+    background-color: #FF1E1E;
+    box-shadow: 0 2px #6B6B6B;
+    transform: translateY(2px);
 }
 footer {
     color:#FFF;

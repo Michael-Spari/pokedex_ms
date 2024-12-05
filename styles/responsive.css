@@ -21,15 +21,12 @@
     .mainCards {
         font-size: 10px;
     }
-
     .mainCardImage {
         width: 60px;
     }
-
     .typeIcon {
         width: 10px;
     }
-
     .detailCards {
         width: 90%;
         max-height: 80vh;

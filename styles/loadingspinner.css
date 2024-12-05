@@ -9,7 +9,7 @@
     height: 200px;
 }
 svg {
-    animation: spin 3s linear infinite; /* Rotiert endlos */
+    animation: spin 3s linear infinite;
     transform-origin: center;
 }
 @keyframes spin {

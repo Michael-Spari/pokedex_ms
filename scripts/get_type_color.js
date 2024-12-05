@@ -18,7 +18,6 @@ function getTypeColor(typeName) {
         dragon: '#7038F8',
         flying: '#A890F0',
         dark: '#705848',
-    };
-    
-    return typeColors[typeName] || ''; // Rückgabe der Farbe oder eines leeren Strings, wenn keine Farbe vorhanden ist
+    };   
+    return typeColors[typeName] || '';
 }

@@ -64,28 +64,25 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height: 90vh; /* Maximale Höhe auf 90% des Viewports beschränken */
-    max-width: 90vw; /* Maximale Breite auf 90% des Viewports beschränken */
-    overflow: hidden; /* Scrollbar direkt am äußeren Rand verhindern */
+    max-height: 90vh;
+    max-width: 90vw;
+    overflow: hidden;
 }
-
-/* Innerer Wrapper für Scrollen */
 .detailCards-content {
-    padding-right: 10px; /* Platz für Scrollbar schaffen */
-    overflow-y: auto; /* Vertikales Scrollen aktivieren */
-    overflow-x: hidden; /* Horizontales Scrollen vermeiden */
-    max-height: 100%; /* Begrenzung der Höhe innerhalb des Containers */
+    padding-right: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
 }
-/* Scrollbar-Styling */
 .detailCards-content::-webkit-scrollbar {
-    width: 8px; /* Breite der Scrollbar */
+    width: 8px;
 }
 .detailCards-content::-webkit-scrollbar-thumb {
-    background-color: #3B4CCA; /* Farbe der Scrollbar */
-    border-radius: 4px; /* Abgerundete Scrollbar */
+    background-color: #3B4CCA;
+    border-radius: 4px;
 }
 .detailCards-content::-webkit-scrollbar-track {
-    background: transparent; /* Transparenter Hintergrund für die Scrollbar */
+    background: transparent;
 }
 .detailCardImage {
     width: 100%;

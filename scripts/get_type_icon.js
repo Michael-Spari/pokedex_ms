@@ -18,7 +18,6 @@ function getTypeIcon(typeName) {
         dragon: 'assets/icons/pokedex_icons/dragon.png',
         flying: 'assets/icons/pokedex_icons/flying.png',
         dark: 'assets/icons/pokedex_icons/dark.png',
-    };
-    
-    return typeIcons[typeName] || ''; // Rückgabe des Icons oder eines leeren Strings, wenn kein Icon vorhanden ist
+    };   
+    return typeIcons[typeName] || '';
 }
