@@ -76,22 +76,17 @@ h1 {
     overflow-x: hidden; /* Horizontales Scrollen vermeiden */
     max-height: 100%; /* Begrenzung der Höhe innerhalb des Containers */
 }
-
 /* Scrollbar-Styling */
 .detailCards-content::-webkit-scrollbar {
     width: 8px; /* Breite der Scrollbar */
 }
-
 .detailCards-content::-webkit-scrollbar-thumb {
     background-color: #3B4CCA; /* Farbe der Scrollbar */
     border-radius: 4px; /* Abgerundete Scrollbar */
 }
-
 .detailCards-content::-webkit-scrollbar-track {
     background: transparent; /* Transparenter Hintergrund für die Scrollbar */
 }
-
-
 .detailCardImage {
     width: 100%;
     object-fit: cover;
@@ -111,4 +106,3 @@ h1 {
     width: 15px;
     object-fit: cover;
 }
-

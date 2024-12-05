@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <script src="script.js"></script>
+    <script src="./scripts/fetch_indexe.js"></script>
     <script src="./scripts/search_pokemon.js"></script>
     <script src="./scripts/get_type_icon.js"></script>
     <script src="./scripts/get_type_color.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./scripts/detail_win.js"></script>
+    <script src="./scripts/button_detail_card.js"></script>
+    <script src="./scripts/responsive.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/detail_win.css">
     <link rel="stylesheet" href="./styles/detail_card.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/loadingspinner.css">
 </head>
 
 <body onload="init()">
-    <div onclick="toggleRespMenu()" class="darkenBackgroundClose" id="darken"> </div>
-    <header class="contentMax">
-        <div class="headerFrame"><img class="logo" src="./assets/img/pokemonLogo.png"></div>
-        <div class="headerFrame"></div><input type="text" id="seachPokemon" placeholder="Pokémon suchen" oninput="searchPokemon()"/></div>
+    <div onclick="toggleRespMenu()" class="darkenBackgroundClose" id="darken"></div>
+    <header>
+        <div class="headerDiv">
+            <div class="headerFrame"><img class="logo" src="./assets/img/pokemonLogo.png"></div>
+            <div class="headerFrame"></div><input type="text" id="seachPokemon" placeholder="Pokémon suchen" oninput="searchPokemon()"/></div>
+        </div>
     </header>
     <section>
         <div class="contentMax" id="content"></div>

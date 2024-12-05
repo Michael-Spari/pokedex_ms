@@ -31,7 +31,6 @@ function renderDetailDataHTML(pokemonDetails, typeName, typeIcon, typeColor) { /
     <div class="detailCards-content">
         <div class="innerDetailCards" style="background-color: ${typeColor}">
             <div class="mainCardsIconText">${pokemonDetails.name}</div>
-            
                 <div>
                     <img class="detailCardImage" 
                          src="${pokemonDetails.sprites.other["official-artwork"].front_default}" 
@@ -65,30 +64,4 @@ function renderDetailDataHTML(pokemonDetails, typeName, typeIcon, typeColor) { /
                 <div class="speciesData" id="slots"><img class="loadingGif" src="./assets/img/loading.gif"></div>
             </div>
         </div>`;
-}
-
-function showSlots(pokemonId) {
-    const slots = pokemonList.find(pokemon => pokemon.id === pokemonId).moves; // Slots des Pokémons finden
-    const slotsList = slots.map(slot => slot.move.name); // Slots in eine Liste umwandeln
-    document.getElementById("slots").innerHTML = `
-        <div class="slotsFrame"><b>Slots:</b> ${slotsList.join(", ")}</div>`; // Slots in die HTML-Datei einfügen
-}
-
-function showMoves(pokemonId) {
-    const moves = pokemonList.find(pokemon => pokemon.id === pokemonId).moves; // Moves des Pokémons finden
-    const movesList = moves.map(move => move.move.name); // Moves in eine Liste umwandeln
-    document.getElementById("slots").innerHTML = `
-        <div class="slotsFrame"><b>Moves:</b> ${movesList.join(", ")}</div>`; // Moves in die HTML-Datei einfügen
-}
-
-function showAbilities(pokemonId) {
-    const abilities = pokemonList.find(pokemon => pokemon.id === pokemonId).abilities; // Abilities des Pokémons finden
-    const abilitiesList = abilities.map(ability => ability.ability.name); // Abilities in eine Liste umwandeln
-    document.getElementById("slots").innerHTML = `
-        <div class="slotsFrame"><b>Abilities:</b> ${abilitiesList.join(", ")}</div>`; // Abilities in die HTML-Datei einfügen
-}
-
-function closeDetailCard() {
-    document.getElementById("detailCard").classList.toggle("detailWinOpen"); // Detailansicht schließen
-    document.getElementById("darken").classList.toggle("darkenBackgroundOpen"); // Hintergrund aufhellen
 }
