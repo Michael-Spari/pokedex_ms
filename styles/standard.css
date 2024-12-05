@@ -35,6 +35,7 @@ header {
 }
 .logo{
     width: 200px;
+    cursor: pointer;
 }
 section {
     display: flex;

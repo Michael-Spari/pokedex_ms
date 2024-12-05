@@ -3,8 +3,7 @@ let offset = 0; // Offset für die API
 
 function init() {
     fetchPokemonMainApi();
-    checkWindowSize(); // Fenstergröße überprüfen
-    
+    checkWindowSize(); // Fenstergröße überprüfen   
 }
 
 function handleCardClick(pokemonId) { // Detailansicht anzeigen anhand der ID

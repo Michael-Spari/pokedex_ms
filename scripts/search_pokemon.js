@@ -1,6 +1,5 @@
 function searchPokemon() {
-    let searchValue = document.getElementById("seachPokemon").value.trim().toLowerCase(); // Suchwert holen und formatieren
-    
+    let searchValue = document.getElementById("seachPokemon").value.trim().toLowerCase(); // Suchwert holen und formatieren   
     let contentMainCard = document.getElementById("content"); // Hauptinhalt holen
     contentMainCard.innerHTML = ''; // Inhalt zurücksetzen
 
