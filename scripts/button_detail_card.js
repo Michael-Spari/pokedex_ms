@@ -5,6 +5,8 @@ function showLastPokemon(pokemonId) {
     } else {
         alert("This is the first Pokémon in the list.");
     }
+    document.getElementById("detailCard").classList.add("detailWinOpen");
+    document.getElementById("darken").classList.add("darkenBackgroundOpen");
 }
 
 function showNextPokemon(pokemonId) {
@@ -14,13 +16,15 @@ function showNextPokemon(pokemonId) {
     } else {
         alert("This is the last Pokémon in the list.");
     }
+    document.getElementById("detailCard").classList.add("detailWinOpen");
+    document.getElementById("darken").classList.add("darkenBackgroundOpen");
 }
 
-function showSlots(pokemonId) {
-    const slots = pokemonList.find(pokemon => pokemon.id === pokemonId).moves;
-    const slotsList = slots.map(slot => slot.move.name);
+function showStats(pokemonId) {
+    const stats = pokemonList.find(pokemon => pokemon.id === pokemonId).stats;
+    const statsList = stats.map(stat => `${stat.stat.name}: ${stat.base_stat}`);
     document.getElementById("slots").innerHTML = `
-        <div class="slotsFrame"><b>Slots:</b> ${slotsList.join(", ")}</div>`;
+        <div class="slotsFrame"><b>Stats:</b> ${statsList.join(", ")}</div>`;
 }
 
 function showMoves(pokemonId) {

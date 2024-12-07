@@ -1,7 +1,7 @@
 async function fetchPokemonMainApi() {
     showLoadingSpinner();
     try {
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=40`);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`);
         let data = await response.json();
         await fetchPokemonDetailUrl(data);
     } catch (error) {

@@ -13,6 +13,8 @@
     button {
         font-size: 8px;
         padding: 3px 5px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
     input {
         font-size: 8px;
@@ -28,7 +30,9 @@
         width: 10px;
     }
     .detailCards {
-        width: 90%;
+        width: 80%;
         max-height: 80vh;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

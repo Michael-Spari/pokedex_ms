@@ -1,4 +1,4 @@
-function renderDataHtml(pokemonDetails, typeName, typeIcon, typeColor) { // Daten in die HTML-Datei einfügen
+function renderDataHtml(pokemonDetails, typeName, typeIcon, typeColor) {
     return `
         <div class="mainCards" 
              style="background-color: ${typeColor}" 
@@ -22,13 +22,13 @@ function renderDataHtml(pokemonDetails, typeName, typeIcon, typeColor) { // Date
         </div>`;
 }
 
-function renderDetailDataHTML(pokemonDetails, typeName, typeIcon, typeColor) { // Detailansicht rendern
-    document.getElementById("detailCard").classList.toggle("detailWinOpen"); // Detailansicht öffnen
-    document.getElementById("darken").classList.toggle("darkenBackgroundOpen"); // Hintergrund abdunkeln
-    const contentDetailCard = document.getElementById("detailCard"); // Detailansicht in die Variable contentDetailCard speichern
-    const { habitat, flavorText, generation } = pokemonDetails.speciesData; // Daten aus gespeicherter Liste holen
+function renderDetailDataHTML(pokemonDetails, typeName, typeIcon, typeColor) {
+    document.getElementById("detailCard").classList.toggle("detailWinOpen");
+    document.getElementById("darken").classList.toggle("darkenBackgroundOpen");
+    const contentDetailCard = document.getElementById("detailCard");
+    const { habitat, flavorText, generation } = pokemonDetails.speciesData;
     contentDetailCard.innerHTML = `
-    <div class="detailCards-content">
+    <div class="detailCards-content" onclick="event.stopPropagation();">
         <div class="innerDetailCards" style="background-color: ${typeColor}">
             <div class="mainCardsIconText">${pokemonDetails.name}</div>
                 <div>
@@ -49,10 +49,10 @@ function renderDetailDataHTML(pokemonDetails, typeName, typeIcon, typeColor) { /
                     <button onclick="showLastPokemon(${pokemonDetails.id})"><img  class="leftArrow" src="./assets/img/lastPokemon.png"></button>
                     <button class="rightArrow" onclick="showNextPokemon(${pokemonDetails.id})"><img  class="leftArrow" src="./assets/img/nextPokemon.png"></button>
                 <div class="detailButtonFrame">
-                    <button onclick="showSlots(${pokemonDetails.id}); event.stopPropagation();">Slots</button>
-                    <div><button onclick="showMoves(${pokemonDetails.id}); event.stopPropagation();">Moves</button></div>
-                    <div><button onclick="showAbilities(${pokemonDetails.id}); event.stopPropagation();">Abilities</button></div>
-                    <div><button onclick="closeDetailCard(); event.stopPropagation();">X</button></div>
+                    <button onclick="showStats(${pokemonDetails.id}); event.stopPropagation();">Stats</button>
+                    <button onclick="showMoves(${pokemonDetails.id}); event.stopPropagation();">Moves</button>
+                    <button onclick="showAbilities(${pokemonDetails.id}); event.stopPropagation();">Abilities</button>
+                    <button onclick="closeDetailCard(); event.stopPropagation();">X</button>
                 </div>
                     <div class="speciesData">
                         <span><b>Height:</b> ${pokemonDetails.height} m</span>
